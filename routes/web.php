@@ -20,14 +20,7 @@ Route::get('/usuarios/{id}','UsersController@show')->where('id','[0-9]+');
 
 Route::get('/usuarios/nuevo','UsersController@create');
 
-Route::get('/saludo/{name}/{nickname?}', function ($name, $nickname= null) {
-	$name=ucfirst($name);
-    if ($nickname) {
-    	return "bienvenido {$name}, tu apodo es {$nickname}";
-    }else{
-    	return "bienvenido {$name}, no tienes apodo";
-    }
-});
+Route::get('/saludo/{name}/{nickname?}','WelcomeUsersControler@index');
 
 
 
