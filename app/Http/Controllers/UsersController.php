@@ -6,9 +6,22 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function index()
-    {
-    	return 'usuarios';
+	public function index()
+	{
+		
+		if (request()->has('empty')) {
+			$users=[];
+		}else{
+
+			$users=['jose','marlon','maria','diego','carlos','saul',
+
+		];
+	}
+	$title='listado de usuarios';
+
+  //  dd(compact('title','users'));
+    	return view('users',compact('title','users'));
+    		
     }
 
     public function show($id)

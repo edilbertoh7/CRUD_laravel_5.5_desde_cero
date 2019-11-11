@@ -6,16 +6,29 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class UsersModuleTest extends TestCase
+class UsersModuleTest extends TestCase 
 {
     /**
      * @test
      */
-     function it_loads_the_users_list_page()
+     function it_show_the_users_list()
     {
         $this->get('/usuarios')
         ->assertStatus(200)
-        ->assertSee('usuarios');
+        ->assertSee('jose')
+        ->assertSee('marlon')
+        ->assertSee('maria');
+    }
+
+    /**
+     * @test
+     */
+     function it_shows_a_default_message_if_the_users_list_is_empty()
+    {
+        $this->get('/usuarios?empty')
+        ->assertStatus(200)
+        ->assertSee('No hay usuarios registrado');
+        
     }
     /**
      * @test
