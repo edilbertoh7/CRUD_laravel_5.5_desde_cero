@@ -1,7 +1,7 @@
 <?php
-
+use App\Profession as pro;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+//use Illuminate\Support\Facades\DB;
 class ProfessionSeeder extends Seeder
 {
     /**
@@ -16,20 +16,12 @@ class ProfessionSeeder extends Seeder
     	// DB::table('profession')->truncate();
     	// DB::statement('SET FOREIGN_KEY_CKECKS = 1;');
 
-        DB::table('profession')->insert([
-        	'title'=>'desarrollador back-end',
-        ]);
+    	pro::create(['title'=>'desarrollador back-end',]);
+    	pro::create(['title'=>'desarrollador front-end',]);
+    	pro::create(['title'=>'desarrollador diseñador web',]);
+    	pro::create(['title'=>'desarrollador arquitecto de software',]);
+        
 
-          DB::table('profession')->insert([
-        	'title'=>'desarrollador front-end',
-        ]);
-
-            DB::table('profession')->insert([
-        	'title'=>'desarrollador diseñador web',
-        ]);
-
-              DB::table('profession')->insert([
-        	'title'=>'desarrollador arquitecto de software',
-        ]);
+        
     }
 }

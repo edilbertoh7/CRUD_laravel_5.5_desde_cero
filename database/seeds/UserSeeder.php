@@ -1,8 +1,8 @@
 <?php
-
+use App\Profession as pro;
+use App\User as us;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use App\Profession;
+//use Illuminate\Support\Facades\DB;
 class UserSeeder extends Seeder
 {
     /**
@@ -12,22 +12,21 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-    	$pro= DB::table('Profession')->where('title','desarrollador front-end')->value('id');
+    	$pro= pro::where('title','desarrollador front-end')->value('id');
     	//tambien se puede usar esta forma laravel entiende que title es el nombre de la columna
     	//$pro= DB::table('Profession')->whereTitle('desarrollador front-end')->value('id');
     	
-
-        DB::table('users')->insert([
-
-        	'name'=>'Edilberto Herrera',
+    	us::create([
+    		'name'=>'Edilberto Herrera',
         	'email'=>'edilbertoh7@gmail.com',
         	'password'=> bcrypt('141580'),
         	'Profession_id'=>$pro
-        	
-        ]);
-        	$pro= DB::table('Profession')->where('title','=','desarrollador back-end')->value('id');
+
+    	]);
+      
+        	$pro=  pro::where('title','=','desarrollador back-end')->value('id');
     
-         DB::table('users')->insert([
+         us::create([
 
         	'name'=>'Ashley Valentina Herrera',
         	'email'=>'ashleyvalenet261205@gmail.com',
