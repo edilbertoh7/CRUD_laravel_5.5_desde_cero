@@ -20,7 +20,7 @@ class ProfessionSeeder extends Seeder
     	pro::create(['title'=>'desarrollador front-end',]);
     	pro::create(['title'=>'desarrollador diseñador web',]);
     	pro::create(['title'=>'desarrollador arquitecto de software',]);
-        
+        factory(pro::class,15)->create();
 
         
     }

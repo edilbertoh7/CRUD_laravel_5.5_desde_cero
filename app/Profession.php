@@ -9,4 +9,10 @@ class Profession extends Model
     protected $fillable = [
         'title',
     ];
+
+    public function users()
+    {
+    	return $this->hasMany(User::class);
+    }
+
 }

@@ -29,13 +29,17 @@ class User extends Authenticatable
 
     protected $casts = [
         'is_admin'=> 'boolean'
-    ]
+    ];
 
     public function findBYEmail($email)
     {
         return static::where(compact('email'))->first();
     }
 
+    public function profession()
+    {
+        return $this->belongsTo(Profession::class);
+    }
     public function isadmin()
     {
        return $this->email==='edilbertoh7@gmail.com';
