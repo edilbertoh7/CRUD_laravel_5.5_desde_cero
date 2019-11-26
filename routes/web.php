@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Route::get('/usuarios','UsersController@index')
@@ -36,4 +36,3 @@ Route::delete('/usuarios/{user}','UsersController@destroy')->name('users.destroy
 
 
 
- 
