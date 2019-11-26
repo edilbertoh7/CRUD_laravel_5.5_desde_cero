@@ -12,6 +12,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->truncate();
+
     	$pro= pro::where('title','desarrollador front-end')->value('id');
     	//tambien se puede usar esta forma laravel entiende que title es el nombre de la columna
     	//$pro= DB::table('Profession')->whereTitle('desarrollador front-end')->value('id');

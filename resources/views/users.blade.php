@@ -1,27 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>listado de usuarios curso_laravel 5.5</title>
-</head>
-<body>
-	<h1>
-			 <h1> {{ $title }} </h1>
+@extends('layout')
+@section('content')
 
-			 <hr>
-			 @unless(empty($users))
+	<h1> {{ $title }} </h1>
+	@forelse ($users as $user)
+	
 		<ul>
-			@foreach ($users as $user)
-
-				<li>
-					{{$user}}
-				</li>
-			 @endforeach
-
+			<li>
+				{{ $user->id }} {{ $user->name }}
+			</li>
 		</ul>
-		@else
-		<p>No hay usuarios registrados</p>
-		@endif
-
-
-</body>
-</html>
+	    
+	@empty
+	<h1>no hay registros</h1>
+	@endforelse
+@endsection
