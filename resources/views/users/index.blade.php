@@ -13,7 +13,6 @@
 	</div>
 	@if ($users->isNotEmpty())
 	
-
 	<table class="table table-dark">
 		<thead>
 			<tr>

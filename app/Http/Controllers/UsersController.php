@@ -44,8 +44,9 @@ class UsersController extends Controller
     $data = request()->validate([
         'name'=>'required',
         'email'=>['required','email','unique:users,email'],
-        'password'=>'required',
-    ],['name.required'=>'El campo nombre es obligatorio'
+        'password'=>'required|min:6',
+    ],['name.required'=>'El campo nombre es obligatorio',
+        'password.min'=>'Debe digitar  minimo 6 caracteres'
 ]);
 
     User::create([
